@@ -122,3 +122,24 @@ Comandos de la clase:
 Ingresamos a la shell de Django con `py mange.py shell`
 
 Y desde aquí trabajamos como lo haríamos normalmente en Python teniendo acceso a los módulos y paquetes de nuestro proyecto.
+
+```python
+(InteractiveConsole)
+>>> from polls.models import Choice, Question
+>>> Question.objects.all()
+<QuerySet []>
+>>> from django.utils import timezone
+>>> q = Question(question_text='¿Cuál es el mejor curso de Platzi?', pub_date=timezone.now())
+>>> q.save()
+```
+
+### El método \_\_str\_\_
+
+Agregamos el método de `def __str__` a ambas clases y podemos obtener mejor información en la shell.
+
+```python
+>>> from polls.models import Question, Choice
+>>> Question.objects.all()
+<QuerySet [<Question: ¿Cuál es el mejor curso de Platzi?>]>
+>>>
+```
