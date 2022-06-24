@@ -90,3 +90,20 @@ Cada archivo de Python será un 'modelo' (que representa una tabla de las BBDD) 
 Cada atributo de la clase, es la representación de las columnas.
 
 Y los tipos de datos de las columnas, serán las clases dentro de los atributos.
+
+### Creando un diagrama entidad-relación para nuestro proyecto
+
+| questions                |
+| ------------------------ |
+| id -> int                |
+| question_text -> varchar |
+| pub_date -> datetime     |
+
+relación uno a muchos con
+
+| choices                |
+| ---------------------- |
+| id -> int              |
+| question -> int        |
+| choice_text -> varchar |
+| votes -> int           |
