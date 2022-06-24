@@ -107,3 +107,10 @@ relación uno a muchos con
 | question -> int        |
 | choice_text -> varchar |
 | votes -> int           |
+
+### Creando los modelos Question y Choice
+
+Comandos de la clase:
+
+- `py manage.py makemigrations 'nombre_de_la_app'` -> Django describe toda la creación de las tablas de las BBDD.
+- `py manage.py migrate` -> Django toma el archivo creado con el comando anterior y lo ejecuta en la BBDD.
