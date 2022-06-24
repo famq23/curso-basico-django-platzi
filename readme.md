@@ -28,3 +28,14 @@ Finalmente, iniciamos el proyecto con `django-admin startproject 'nombre_del_pro
 ### El servidor de desarrollo
 
 Entramos a la carpeta del proyecto y hacemos `py manage.py runserver` para iniciar el servidor de Django.
+
+### Nuestro primer proyecto: Premios Platzi App
+
+Un __proyecto__ en Django, es un __conjunto de aplicaciones__.
+
+Ejemplo: Instagram es un proyecto de Django, que tiene varias aplicaciones, como:
+
+- Feed (donde se cargan las fotos)
+- Stories
+- Messages
+- Etc
