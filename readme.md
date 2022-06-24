@@ -114,3 +114,11 @@ Comandos de la clase:
 
 - `py manage.py makemigrations 'nombre_de_la_app'` -> Django describe toda la creación de las tablas de las BBDD.
 - `py manage.py migrate` -> Django toma el archivo creado con el comando anterior y lo ejecuta en la BBDD.
+
+## Interactive Shell
+
+### La consola interactiva de Django
+
+Ingresamos a la shell de Django con `py mange.py shell`
+
+Y desde aquí trabajamos como lo haríamos normalmente en Python teniendo acceso a los módulos y paquetes de nuestro proyecto.
