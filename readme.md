@@ -143,3 +143,25 @@ Agregamos el método de `def __str__` a ambas clases y podemos obtener mejor inf
 <QuerySet [<Question: ¿Cuál es el mejor curso de Platzi?>]>
 >>>
 ```
+
+### Filtrando los objetos creados desde la consola interactiva
+
+_protip_: Para limpiar la terminal en Python desde Windows, escribe:
+
+```python
+>>> import os
+>>> os.system('cls')
+```
+
+__protip__: Usando `__` en los atributos, Django nos permite hacer búsquedas más complejas sobre los datos.
+
+```python
+>>> Question.objects.get(pub_date__year=timezone.now().year)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\migue\Desktop\Desktop_files\CURSOS\platzi\curso_basico_django\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\migue\Desktop\Desktop_files\CURSOS\platzi\curso_basico_django\venv\lib\site-packages\django\db\models\query.py", line 499, in get
+    raise self.model.MultipleObjectsReturned(
+polls.models.Question.MultipleObjectsReturned: get() returned more than one Question -- it returned 3!
+```
