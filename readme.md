@@ -39,3 +39,32 @@ Ejemplo: Instagram es un proyecto de Django, que tiene varias aplicaciones, como
 - Stories
 - Messages
 - Etc
+
+### Nuestro primer proyecto: Premios Platzi App 2
+
+Para crear aplicaciones en Django hacemos `py manage.py startapp 'nombre_de_la_app'`.
+
+En el archivo principal de urls.py podemos indicar qué rutas tendrá nuestro proyecto.
+
+Además, podemos crear apps que tendrán más archivos urls.py para manejar las rutas de cada respectiva app y que trabajen dentro del mismo proyecto.
+
+```python
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('polls/', include('polls.urls'))
+]
+
+```
+
+Ese es el urls.py principal y en el de una app particular, podemos tener, por ejemplo:
+
+```python
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path('', views.index, name="index")
+]
+
+```
