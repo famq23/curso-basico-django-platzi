@@ -76,3 +76,17 @@ Por defecto, Django solo admite bases de datos relacionales.
 [Documentación de Settings](https://docs.djangoproject.com/en/4.0/ref/settings/)
 
 [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+
+## Models
+
+### ¿Qué es ORM? ¿Qué es un modelo?
+
+ORM -> Object Relational Mapping
+
+Se trata de relacionar una RBD (Base de datos relacional) con la POO.
+
+Cada archivo de Python será un 'modelo' (que representa una tabla de las BBDD) y se crea con clases.
+
+Cada atributo de la clase, es la representación de las columnas.
+
+Y los tipos de datos de las columnas, serán las clases dentro de los atributos.
