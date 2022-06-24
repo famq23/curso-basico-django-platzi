@@ -68,3 +68,11 @@ urlpatterns = [
 ]
 
 ```
+
+### Ajustando el archivo settings.py
+
+Por defecto, Django solo admite bases de datos relacionales.
+
+[Documentación de Settings](https://docs.djangoproject.com/en/4.0/ref/settings/)
+
+[List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
