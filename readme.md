@@ -17,3 +17,10 @@ Primero, [creamos nuestro entorno virtual](https://github.com/Mike-droid/CursoPy
 Y ya dentro hacemos `pip install django`.
 
 Finalmente, iniciamos el proyecto con `django-admin startproject 'nombre_del_proyecto'`.
+
+### Explorando los archivos que creó Django
+
+- __init__.py indica que es un paquete
+- asgi.py y wsgi.py son archivos que sirven para el despliegue a producción del proyecto
+- settings.py son configuraciones como BD, zona horaria, lenguaje, etc.
+- urls.py es el archivo que tiene las rutas del proyecto.
