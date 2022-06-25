@@ -165,3 +165,20 @@ Traceback (most recent call last):
     raise self.model.MultipleObjectsReturned(
 polls.models.Question.MultipleObjectsReturned: get() returned more than one Question -- it returned 3!
 ```
+
+### El método filter
+
+```python
+>>> Question.objects.filter(pk=1)
+<QuerySet [<Question: ¿Cuál es el mejor curso de Platzi?>]>
+>>> Question.objects.filter(pk=2)
+<QuerySet [<Question: ¿Quién es el mejor profesor de Platzi?>]>
+>>> Question.objects.filter(pk=4)
+<QuerySet []>
+>>> Question.objects.filter(question_text__startswith='¿Cuál')
+<QuerySet [<Question: ¿Cuál es el mejor curso de Platzi?>, <Question: ¿Cuál es la mejor escuela de Platzi?>]>
+>>> Question.objects.filter(pub_date__year=timezone.now().year)
+<QuerySet [<Question: ¿Cuál es el mejor curso de Platzi?>, <Question: ¿Quién es el mejor profesor de Platzi?>, <Question: ¿Cuál es la mejor
+escuela de Platzi?>]>
+>>>
+```
