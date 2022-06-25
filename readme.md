@@ -205,3 +205,15 @@ escuela de Platzi?>]>
 <QuerySet [<Choice: Curso Básico de Python>, <Choice: Curso de Fundamentos de Ingeniería de Software>, <Choice: Curso de Elixir>]>
 >>>
 ```
+
+## Django Admin
+
+### El administrador de Django
+
+__Comando súper peligroso__: `py manage.py createsuperuser`
+
+¿Por qué es peligroso? Porque crearemos un usuario que tenga todo el control de la base de datos y este usuario solamente debe ser usado por el administrador de la BBDD.
+
+Cuando asignamos un nombre de usuario, correo y contraseña, haremos lo siguiente:
+
+Debemos entrar al archivo admin.py de nuestras apps y hacer que los modelos sean disponibles para la ruta localhost:8000/admin.
