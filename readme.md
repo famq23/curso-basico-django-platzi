@@ -217,3 +217,16 @@ __Comando súper peligroso__: `py manage.py createsuperuser`
 Cuando asignamos un nombre de usuario, correo y contraseña, haremos lo siguiente:
 
 Debemos entrar al archivo admin.py de nuestras apps y hacer que los modelos sean disponibles para la ruta localhost:8000/admin.
+
+## Views
+
+### ¿Qué son las views o vistas?
+
+Django usa el modelo MTV -> Model Template View.
+
+Django es un fullstack framework. En el backend tenemos las views y en el frontend las templates.
+
+Una vista tiene:
+
+- Función -> Function Based Views
+- Clase -> Generic Views
