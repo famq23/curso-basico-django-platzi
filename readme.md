@@ -182,3 +182,26 @@ polls.models.Question.MultipleObjectsReturned: get() returned more than one Ques
 escuela de Platzi?>]>
 >>>
 ```
+
+### Accediendo al conjunto de respuestas
+
+```python
+>>> q = Question.objects.get(pk=1)
+>>> q
+<Question: ¿Cuál es el mejor curso de Platzi?>
+>>> q.choice_set.all()
+<QuerySet []>
+>>> q.choice_set.create(choice_text="Curso Básico de Python", votes=0)
+<Choice: Curso Básico de Python>
+>>> q.choice_set.create(choice_text="Curso de Fundamentos de Ingeniería de Software", votes=0)
+<Choice: Curso de Fundamentos de Ingeniería de Software>
+>>> q.choice_set.create(choice_text="Curso de Elixir", votes=0)
+<Choice: Curso de Elixir>
+>>> q.choice_set.all()
+<QuerySet [<Choice: Curso Básico de Python>, <Choice: Curso de Fundamentos de Ingeniería de Software>, <Choice: Curso de Elixir>]>
+>>> q.choice_set.count()
+3
+>>> Choice.objects.filter(question__pub_date__year=timezone.now().year)
+<QuerySet [<Choice: Curso Básico de Python>, <Choice: Curso de Fundamentos de Ingeniería de Software>, <Choice: Curso de Elixir>]>
+>>>
+```
