@@ -230,3 +230,49 @@ Una vista tiene:
 
 - Función -> Function Based Views
 - Clase -> Generic Views
+
+### Creando vistas para la aplicación
+
+Creamos las vistas en views.py:
+
+```python
+from django.shortcuts import render
+from django.http import HttpResponse
+
+
+def index(request):
+    return HttpResponse("You are in the index page from Premios Platzi App")
+
+
+def detail(request, question_id):
+    return HttpResponse(f'You are watching the question # {question_id}')
+
+
+def results(request, question_id):
+    return HttpResponse(f'You are watching the results from the question # {question_id}')
+
+
+def vote(request, question_id):
+    return HttpResponse(f'You are voting to the question # {question_id}')
+
+```
+
+Y las importamos en el archivo urls.py:
+
+```python
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    # * ex: /polls/
+    path('', views.index, name="index"),
+    # * ex: /polls/3
+    path('<int:question_id>/', views.detail, name="detail"),
+    # * ex: /polls/3/results
+    path('<int:question_id>/results/', views.results, name="results"),
+    # * ex: /polls/3/vote
+    path('<int:question_id>/vote/', views.vote, name="vote"),
+]
+
+```
