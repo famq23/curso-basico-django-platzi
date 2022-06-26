@@ -394,3 +394,11 @@ Para que pluralize funcione, no debe de haber espacios:
 </ul>
 <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
 ```
+
+## Generic Views
+
+### Clase Generic Views
+
+Las Generic views son funciones basadas en clases (POO).
+
+[Classy Class-Based Views](http://ccbv.co.uk/)
