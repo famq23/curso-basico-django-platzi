@@ -325,3 +325,46 @@ def index(request):
 ### Elevando el error 404
 
 Django tiene un shortcut que es `get_object_or_404` justamente para este tipo de casos.
+
+### Utilizando la etiqueta url para evitar el hard coding
+
+Conectamos urls.py con los templates:
+
+```python
+from django.urls import path
+
+from . import views
+
+app_name = "polls"
+
+urlpatterns = [
+    # * ex: /polls/
+    path('', views.index, name="index"),
+    # * ex: /polls/3
+    path('<int:question_id>/', views.detail, name="detail"),
+    # * ex: /polls/3/results
+    path('<int:question_id>/results/', views.results, name="results"),
+    # * ex: /polls/3/vote
+    path('<int:question_id>/vote/', views.vote, name="vote"),
+]
+
+```
+
+```python
+{% if latest_question_list %}
+<ul>
+  {% for question in latest_question_list %}
+  <li>
+    <a href="{% url 'polls:detail' question.id %}"
+      >{{ question.question_text }}</a
+    >
+    {% comment %} polls sale del app_name y detail sale del name de la vista en
+    urls.py {% endcomment %}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
+
+```
