@@ -402,3 +402,11 @@ Para que pluralize funcione, no debe de haber espacios:
 Las Generic views son funciones basadas en clases (POO).
 
 [Classy Class-Based Views](http://ccbv.co.uk/)
+
+### Implementado generic views en la aplicación
+
+¿Cuándo usar Generic y Function views?
+
+Si sigues el modelo de la BBDD, usa Generic Views. Si haces algo más complejo, usa Function-based views.
+
+> Si se puede, Generic, si no se puede, Function.
