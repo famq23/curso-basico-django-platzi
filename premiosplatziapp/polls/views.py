@@ -1,9 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from .models import Question
+
 
 def index(request):
-    return HttpResponse("You are in the index page from Premios Platzi App")
+    latest_question_list = Question.objects.all()
+    return render(request, "polls/index.html", {
+        # * La variable ahora está disponible en index.html
+        "latest_question_list": latest_question_list
+    })
 
 
 def detail(request, question_id):

@@ -286,3 +286,38 @@ Hacemos una configuración en settings.json para que VS Code use emmet en los te
     "django-html": "html"
 }
 ```
+
+### Creando el template del home
+
+Conectamos a los templates con las views:
+
+index.html:
+
+```python
+{% if latest_question_list %}
+<ul>
+  {% for question in latest_question_list %}
+  <li><a href="/polls/{{ question.id }}">{{ question.question_text }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
+```
+
+views.py:
+
+```python
+from django.shortcuts import render
+from django.http import HttpResponse
+
+from .models import Question
+
+
+def index(request):
+    latest_question_list = Question.objects.all()
+    return render(request, "polls/index.html", {
+        # * La variable ahora está disponible en index.html
+        "latest_question_list": latest_question_list
+    })
+```
