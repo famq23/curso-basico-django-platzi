@@ -368,3 +368,9 @@ urlpatterns = [
 {% endif %}
 
 ```
+
+## Forms
+
+### Formularios: lo básico
+
+__pro tip__: SIEMPRE usa `{% csrf_token %}` en los formularios POST para evitar ataques de hacking.
