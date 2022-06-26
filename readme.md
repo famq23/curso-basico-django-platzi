@@ -276,3 +276,13 @@ urlpatterns = [
 ]
 
 ```
+
+### Templates en Django
+
+Hacemos una configuración en settings.json para que VS Code use emmet en los templates de Django:
+
+```json
+"emmet.includeLanguages":{
+    "django-html": "html"
+}
+```
