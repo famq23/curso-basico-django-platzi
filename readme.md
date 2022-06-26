@@ -376,3 +376,21 @@ urlpatterns = [
 __pro tip__: SIEMPRE usa `{% csrf_token %}` en los formularios POST para evitar ataques de hacking.
 
 ### Creando la vista vote
+
+Es buena práctica hacer redirect después de que el usuario usó un formulario
+
+### Creando la vista results
+
+Para que pluralize funcione, no debe de haber espacios:
+
+```python
+<h1>{{ question.question_text }}</h1>
+<ul>
+  {% for choice in question.choice_set.all %}
+  <li>
+    {{ choice.choice_tex }} -- {{ choice.votes }} vote{{choice.votes|pluralize}}
+  </li>
+  {% endfor %}
+</ul>
+<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+```
