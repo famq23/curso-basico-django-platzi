@@ -321,3 +321,7 @@ def index(request):
         "latest_question_list": latest_question_list
     })
 ```
+
+### Elevando el error 404
+
+Django tiene un shortcut que es `get_object_or_404` justamente para este tipo de casos.
