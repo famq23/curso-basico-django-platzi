@@ -410,3 +410,36 @@ Las Generic views son funciones basadas en clases (POO).
 Si sigues el modelo de la BBDD, usa Generic Views. Si haces algo más complejo, usa Function-based views.
 
 > Si se puede, Generic, si no se puede, Function.
+
+## Examen
+
+- ¿Cuál de los siguientes métodos devuelve un registro que cumpla una condición de una tabla?: `model.objects.if` 💢
+- ¿Qué es una view o vista?: Una página web pública de nuestro proyecto
+- Cuando se tiene una vista con una funcionalidad común en el desarrollo web, debería usar: Generic Views
+- ¿Cuál de los siguientes comandos, para iniciar la consola interactiva de Django, está escrito correctamente?: `python manage.py shell`
+- ¿Qué es Django?: Un framework de desarrollo web con Python, gratis y open source
+- ¿Cuál de los siguientes métodos devuelve todos los registros de una tabla?: `model.objects.all`
+- ¿Cuál de los siguientes comandos para crear un proyecto en Django está escrito correctamente?: `django-admin startproject premiosplatziapp`
+- ¿Qué es un proyecto en Django?: Un conjunto de aplicaciones independientes
+- ¿Qué contiene el archivo manage.py?: El código que hace que el comando django-admin funcione, y permite también ejecutar comandos específicos sobre el proyecto
+- ¿Qué contiene el archivo asgi.py?: El código necesariopara conectar nuestro proyecto con un servidor, una vez que hagamos deploy del mismo
+- ¿Cuál de los siguientes comandos, para crear una aplicación en Django, está escrito correctamente?: `python manage.py startapp polls`
+- ¿Cuál de los siguientes comandos, para inicializar un super usuario en el administrador de Django, está escrito correctamente?: `python manage.py createsuperuser`
+- ¿Qué es ORM (Object Relational Mapping)?: Es una técnica que utilizan ciertas librerías y frameworks, como Django, para replicar con POO, la estructura de una BBDD.
+- ¿A qué equivale una columna de una tabla de una base de datos relacional (en programación orientada a objetos) con el ORM de Django?: atributo
+- ¿Qué es el administrador de Django?: Una interfaz web, ya construida, que permite ver, crear, modificar y eliminar los diferentes registros de cada uno de los modelos que hayamos definido en nuestro proyecto.
+- Al administrador de datos...: Podemos usarlo desde el principio, ya que viene preinstalado en Django
+- ¿Cuál de los siguientes métodos devuelve un conjunto de registros que cumplan una condición de una tabla?: `models.objects.filter`
+- ¿Cuál de los siguientes es un motor de base de datos soportado nativamente por Django?: Todas
+- ¿Cuál de las siguientes es una característica de Django?: Todas
+- ¿Para qué sirve la consola interactiva de Django?: Nos permite ejecutar comandos especiales que la consola de Python no 💢
+- ¿Qué contiene el archivo urls.py?: Las direcciones web a las que se puede acceder en nuestro proyecto
+- Una aplicación es un conjunto de proyectos independientes: falso
+- Una vista es responsable de una de dos cosas: ambas
+- ¿A qué equivale una tabla de una base de datos relacional (en programación orientada a objetos) con el ORM de Django?: A un modelo (clase)
+- ¿Cuál de las siguientes empresas utiliza Django en su backend?: Instagram
+- Las migrations son archivos históricos de todas las actualizaciones que hicimos sobre nuestros modelos, que Django utiliza para replicar en la base de datos, las clases que nosotros creamos: verdadero
+- ¿Cuál de los siguientes archivos no es creado automáticamente por Django?: urls.py 💢
+- Django está en el top 3 de frameworks de desarrollo web con Python: Verdadero
+- ¿Cuál de las siguientes es una variable inexistente en el archivo settings.py?: APP_CONTAINER
+- ¿Cuál de los siguientes comandos, para iniciar el servidor de desarrollo en Django, está escrito correctamente?: `py manage.py runserver`
