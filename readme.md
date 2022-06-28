@@ -528,3 +528,87 @@ Destroying test database for alias 'default'...
 ```
 
 La prueba falló pero es lo que queríamos.
+
+Modificamos el código de models.py:
+
+```python
+def was_published_recently(self):
+  return timezone.now() >= self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+  # * 1 día de antigüedad
+```
+
+Resultado:
+
+```python
+(venv) λ py manage.py test polls
+Found 1 test(s).
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK
+Destroying test database for alias 'default'...
+```
+
+__Pasos a seguir para los tests__:
+
+1. Identificamos un problema
+2. Creamos un test.
+3. Corremos el test.
+4. Arreglamos el problema.
+5. Corremos el test.
+
+Test para preguntas pasadas, presentes y futuras:
+
+```python
+import datetime
+
+from django.test import TestCase
+from django.utils import timezone
+
+from .models import Question
+
+# * Lo más común es hacer tests sobre modelos y/o vistas en Django
+
+
+class QuestionModelTests(TestCase):
+    def setUp(self):
+        self.question = Question(
+            question_text='¿Quién es el mejor Course Director de Platzi?')
+        self.future_time = timezone.now() + datetime.timedelta(days=30)
+        self.past_time = timezone.now() - datetime.timedelta(days=30)
+        self.recent_time = timezone.now()
+
+    def test_was_published_recently_with_future_questions(self):
+        """was_published_recently returns False for questions whose pub_date is in the future"""
+        self.question.pub_date = self.future_time
+        self.assertIs(self.question.was_published_recently(), False)
+
+    def test_was_published_recently_with_past_questions(self):
+        """was_published_recently returns True for questions whose pub_date is in the past"""
+        self.question.pub_date = self.past_time
+        self.assertIs(self.question.was_published_recently(), False)
+
+    def test_was_published_recently_with_recent_questions(self):
+        """was_published_recently returns True for questions whose pub_date is today"""
+        self.question.pub_date = self.recent_time
+        self.assertIs(self.question.was_published_recently(), True)
+
+```
+
+Resultado:
+
+```python
+(venv) λ py manage.py test polls
+Found 3 test(s).
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.003s
+
+OK
+Destroying test database for alias 'default'...
+```
