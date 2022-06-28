@@ -459,3 +459,72 @@ Los tests son funciones que verifican que tu código funcione correctamente. Con
 3. Nos permite trabajar mejor en equipo.
 
 TDD -> Test Driven Development. Antes de escribir el código, tienes que escribir el test.
+
+### Escribiendo nuestro primer test
+
+Analicemos que, una de nuestras funciones del proyecto regresa preguntas recientes, pero si creamos preguntas que son hechas en el futuro, se toman como recientes y esto no debe ser así.
+
+```python
+>>> import datetime
+>>> from django.utils import timezone
+>>> from polls.models import Question
+>>> q = Question(question_text='¿Quién es el mejor Course Director de Platzi?', pub_date=timezone.now() + datetime.timedelta(days=30))
+>>> timezone.now() + datetime.timedelta(days=30)
+datetime.datetime(2022, 7, 28, 2, 42, 20, 144852, tzinfo=datetime.timezone.utc)
+>>> q.was_published_recently()
+True
+>>>
+```
+
+Lo más común es hacer tests sobre modelos y/o vistas en Django.
+
+Test creado:
+
+```python
+import datetime
+
+from django.test import TestCase
+from django.utils import timezone
+
+from .models import Question
+
+# * Lo más común es hacer tests sobre modelos y/o vistas en Django
+
+
+class QuestionModelTests(TestCase):
+
+    def test_was_published_recently_with_future_questions(self):
+        """was_published_recently returns False for questions whose pub_date is in the future"""
+        time = timezone.now() + datetime.timedelta(days=30)
+        future_question = Question(
+            question_text="¿Quién es el mejor Course Director de Platzi?", pub_date=time)
+        self.assertIs(future_question.was_published_recently(), False)
+
+```
+
+Resultado:
+
+```python
+(venv) λ py manage.py test polls
+Found 1 test(s).
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+F
+======================================================================
+FAIL: test_was_published_recently_with_future_questions (polls.tests.QuestionModelTests)
+was_published_recently returns False for questions whose pub_date is in the future
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\migue\Desktop\Desktop_files\CURSOS\platzi\curso_basico_django\premiosplatziapp\polls\tests.py", line 18, in test_was_publis
+hed_recently_with_future_questions
+    self.assertIs(future_question.was_published_recently(), False)
+AssertionError: True is not False
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=1)
+Destroying test database for alias 'default'...
+```
+
+La prueba falló pero es lo que queríamos.
