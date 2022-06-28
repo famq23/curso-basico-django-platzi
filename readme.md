@@ -443,3 +443,19 @@ Si sigues el modelo de la BBDD, usa Generic Views. Si haces algo más complejo, 
 - Django está en el top 3 de frameworks de desarrollo web con Python: Verdadero
 - ¿Cuál de las siguientes es una variable inexistente en el archivo settings.py?: APP_CONTAINER
 - ¿Cuál de los siguientes comandos, para iniciar el servidor de desarrollo en Django, está escrito correctamente?: `py manage.py runserver`
+
+## Django nivel intermedio
+
+## Testing
+
+### ¿Qué son los tests?
+
+Los tests son funciones que verifican que tu código funcione correctamente. Con esto puedes evitar errores futuros.
+
+¿Qué ventajas tiene?
+
+1. Nos damos cuenta de errores que a simple vista no hubieramos visto.
+2. Nos hace más profesionales.
+3. Nos permite trabajar mejor en equipo.
+
+TDD -> Test Driven Development. Antes de escribir el código, tienes que escribir el test.
