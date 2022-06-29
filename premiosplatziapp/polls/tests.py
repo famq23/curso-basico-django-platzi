@@ -33,7 +33,7 @@ class QuestionModelTests(TestCase):
         self.assertIs(self.question.was_published_recently(), True)
 
 
-class QuestionIndexViewTests(TestCase):
+class QuestionIndexViewTests(QuestionModelTests, TestCase):
     def test_no_questions(self):
         """If no question exist, an appropiate message is displayed"""
         # * Hago una petición GET al index de polls y guardo la respuesta en response
@@ -41,3 +41,10 @@ class QuestionIndexViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "No polls are available.")
         self.assertQuerysetEqual(response.context['latest_question_list'], [])
+
+    def test_show_only_recent_questions(self):
+        """The view should only show recent questions. It cannot show future questions from the date they are consulted."""
+        response = self.client.get(reverse('polls:index'))
+        self.assertEqual(response.status_code, 200)
+        future_question = [self.question, self.future_time]
+        self.assertNotContains(response, future_question)
