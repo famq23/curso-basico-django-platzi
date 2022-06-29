@@ -2,6 +2,7 @@ import datetime
 
 from django.test import TestCase
 from django.utils import timezone
+from django.urls import reverse
 
 from .models import Question
 
@@ -30,3 +31,13 @@ class QuestionModelTests(TestCase):
         """was_published_recently returns True for questions whose pub_date is today"""
         self.question.pub_date = self.recent_time
         self.assertIs(self.question.was_published_recently(), True)
+
+
+class QuestionIndexViewTests(TestCase):
+    def test_no_questions(self):
+        """If no question exist, an appropiate message is displayed"""
+        # * Hago una petición GET al index de polls y guardo la respuesta en response
+        response = self.client.get(reverse('polls:index'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "No polls are available.")
+        self.assertQuerysetEqual(response.context['latest_question_list'], [])

@@ -612,3 +612,26 @@ Ran 3 tests in 0.003s
 OK
 Destroying test database for alias 'default'...
 ```
+
+### Testing de Views
+
+Hacemos una modificación en el index de polls en el archivo views.py. Esto lo hacemos porque aunque creamos una pregunta con tiempo en el futuro,la vista regresa esa pregunta, cosa que no debe de pasar.
+
+```python
+def get_queryset(self):
+  "Return the last five published questions"
+  return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
+```
+
+Creamos un nuevo test para la vista en tests.py:
+
+```python
+class QuestionIndexViewTests(TestCase):
+  def test_no_questions(self):
+    """If no question exist, an appropiate message is displayed"""
+    # * Hago una petición GET al index de polls y guardo la respuesta en response
+    response = self.client.get(reverse('polls:index'))
+    self.assertEqual(response.status_code, 200)
+    self.assertContains(response, "No polls are available.")
+    self.assertQuerysetEqual(response.context['latest_question_list'], [])
+```
