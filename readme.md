@@ -761,3 +761,50 @@ def test_future_question_and_past_question(self):
         self.assertNotContains(response, [future_question1, future_question2])
         self.assertQuerysetEqual(response.context['latest_question_list'], [])
 ```
+
+### Creando tests para DetailView
+
+Creamos el nuevo test:
+
+```python
+class QuestionDetailViewTests(TestCase):
+    def test_future_question(self):
+        """
+        The detail view of a question with a pub_date in the future returns a 404 error not found.
+        """
+        future_question = create_question(
+            question_text='Future question', days=30)
+        url = reverse('polls:detail', args=(future_question.id,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+    def test_past_question(self):
+        """
+        The detail view of a question with a pub_date in the past displays the question´s text.
+        """
+        past_question = create_question(
+            question_text='Past question', days=-30)
+        url = reverse('polls:detail', args=(past_question.id,))
+        response = self.client.get(url)
+        self.assertContains(response, past_question.question_text)
+```
+
+Ajutamos la clase de DetailView:
+
+```python
+class DetailView(generic.DetailView):
+    model = Question
+    template_name = 'polls/detail.html'
+
+    def get_queryset(self):
+        """
+        Excludes any questions that are not published yet
+        """
+        return Question.objects.filter(pub_date__lte=timezone.now())
+```
+
+Consejos a la hora de usar tests:
+
+1. Más tests es mejor, aunque parezca lo contrario.
+2. Crea una clase para cada modelo o vista testeada.
+3. Establece nombres de métodos de test lo más descriptivos posibles.
