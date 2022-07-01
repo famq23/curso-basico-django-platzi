@@ -808,3 +808,22 @@ Consejos a la hora de usar tests:
 1. Más tests es mejor, aunque parezca lo contrario.
 2. Crea una clase para cada modelo o vista testeada.
 3. Establece nombres de métodos de test lo más descriptivos posibles.
+
+## Static Files
+
+### Agregando estilos a nuestro proyecto
+
+Creamos un archivo CSS en 'polls/static/polls.css':
+
+```css
+li a {
+  color: green;
+}
+```
+
+Y lo usamos en index.html:
+
+```python
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}" />
+```
