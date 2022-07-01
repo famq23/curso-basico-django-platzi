@@ -827,3 +827,91 @@ Y lo usamos en index.html:
 {% load static %}
 <link rel="stylesheet" href="{% static 'polls/style.css' %}" />
 ```
+
+### Añadiendo una imagen de fondo
+
+styles.css:
+
+```css
+body {
+  background: #4b6cb7;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #182848, #4b6cb7);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #182848, #4b6cb7);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.color-change-2x:hover {
+  -webkit-animation: color-change-2x 2s linear infinite alternate both;
+  animation: color-change-2x 2s linear infinite alternate both
+}
+
+@-webkit-keyframes color-change-2x {
+  0% {
+    background: #19dcea
+  }
+
+  100% {
+    background: #b22cff
+  }
+}
+
+@keyframes color-change-2x {
+  0% {
+    background: #19dcea
+  }
+
+  100% {
+    background: #b22cff
+  }
+}
+
+li {
+  -webkit-backdrop-filter: blur(8.5px);
+  backdrop-filter: blur(8.5px);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  list-style: none;
+  margin: 30px 0;
+  padding: 5px;
+  width: fit-content;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+li a {
+  color: #ffffff;
+  font-size: 2em;
+  text-decoration: none;
+}
+```
+
+index.html:
+
+```python
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}" />
+
+{% if latest_question_list %}
+<ul>
+  {% for question in latest_question_list %}
+  <li class="color-change-2x">
+    <a href="{% url 'polls:detail' question.id %}"
+      >{{ question.question_text }}</a
+    >
+    {% comment %} polls sale del app_name y detail sale del name de la vista en
+    urls.py {% endcomment %}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
+
+```
