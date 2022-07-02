@@ -1,17 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'polls/reset.css' %}" />
     <link rel="stylesheet" href="{% static 'polls/style.css' %}" />
     <title>Questions</title>
   </head>
   <body>
-    <header>
-      <h1>Premios Platzi App</h1>
+    <header class="header">
+      <h1 class="h1">Premios Platzi App</h1>
     </header>
-    <main>
+    <main class="main">
       {% if latest_question_list %}
       <ul>
         {% for question in latest_question_list %}
@@ -28,7 +30,7 @@
       <p>No polls are available.</p>
       {% endif %}
     </main>
-    <footer>
+    <footer class="footer">
       <a href="https://platzi.com">Platzi</a>
       <a href="#">Contacto</a>
       <a href="#">¿Quieres ser profe?</a>

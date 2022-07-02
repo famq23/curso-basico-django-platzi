@@ -982,3 +982,7 @@ admin.site.register(Question, QuestionAdmin)
 ### Comenzando a crear un Frontend
 
 Le dimos una estructura HTML correcta al index.html.
+
+### Añadiendo estilos al home de nuestra aplicación
+
+Una buena práctica de CSS es usar [Reset CSS](https://meyerweb.com/eric/tools/css/reset/)
