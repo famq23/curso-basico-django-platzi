@@ -990,3 +990,7 @@ Una buena práctica de CSS es usar [Reset CSS](https://meyerweb.com/eric/tools/c
 ### Creando la estructura de la vista de detalle
 
 La encuentras en el código 😉
+
+### Finalizando los estilos de la vista de detalle
+
+La encuentras en el código 😉
