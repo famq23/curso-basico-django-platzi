@@ -976,3 +976,9 @@ admin.site.register(Question, QuestionAdmin)
 ```
 
 [Documentación de The Django admin site](https://docs.djangoproject.com/en/4.0/ref/contrib/admin/)
+
+## Bonus: ajustes finales
+
+### Comenzando a crear un Frontend
+
+Le dimos una estructura HTML correcta al index.html.
