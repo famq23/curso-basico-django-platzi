@@ -986,3 +986,7 @@ Le dimos una estructura HTML correcta al index.html.
 ### Añadiendo estilos al home de nuestra aplicación
 
 Una buena práctica de CSS es usar [Reset CSS](https://meyerweb.com/eric/tools/css/reset/)
+
+### Creando la estructura de la vista de detalle
+
+La encuentras en el código 😉
