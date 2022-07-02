@@ -994,3 +994,16 @@ La encuentras en el código 😉
 ### Finalizando los estilos de la vista de detalle
 
 La encuentras en el código 😉
+
+## Examen intermedio
+
+- ¿Cuál de los siguientes formatos no se corresponde a un archivo estático?: py
+- En Django se pueden crear tests tanto para Modelos como para Vistas. Esto es: verdadero
+- ¿Qué son los tests?: Son funciones que verifican que tu código opera correctamente
+- ¿Cuál es el atributo que permite cambiar el orden de los campos, en la creación de un modelo, en el administrador de Django?: fields
+- ¿Cuál de los siguientes pasos no forma parte del flujo de escritura de tests sobre código ya escrito?: probamos manualmente la aplicación
+- ¿Cómo debería ser el nombre de un test?: lo más largo y descriptivo posible
+- ¿Cuál de los siguientes es el significado del acrónimo TDD?: Test Driven Development
+- ¿Qué comando permite correr los tests escritos sobre una aplicación?: `python manage.py tests app_name` 💢
+- ¿Cuál de las siguientes NO es una ventaja de hacer tests?: permite añadir milisegundos blab bla
+- ¿Cuál de los siguientes atributos, añadidos a una clase, en el archivo admin.py, nos permite cambiar algún aspecto del administrador de Django?: todas
